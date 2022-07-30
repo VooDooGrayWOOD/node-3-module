@@ -31,16 +31,13 @@ async function printNotes() {
 
 }
 
-async function changeNotes(id){
+async function changeNotes(answer){
 	const notes = await getNotes()
 	console.log(notes);
-	notes.forEach((note, key)=> {
-		if(note.id == id) {
-			console.log(id)
-			// fs.writeFile(notesPath, JSON.stringify(newNotes))
-		}
+	console.log(answer);
+	notes.forEach((val, key)=> {
+		
 	})
-
 	// await fs.writeFile(notesPath, JSON.stringify(notes))
 
 }

@@ -2,6 +2,7 @@ const express = require('express')
 const chalk = require('chalk')
 const path = require('path')
 const {addNote, getNotes, removeNotes, changeNotes} = require('./notes.controller')
+const {json} = require("express");
 
 const port = 3000
 
@@ -35,8 +36,8 @@ app.post('/', async (req, res)=>{
 	})
 })
 
-app.put('/:id', async (req, res) => {
-	await changeNotes(req.params.title)
+app.put('/:answer', async (req, res) => {
+	await changeNotes(req.params.answer)
 	res.render('index', {
 		title: 'Express App',
 		notes: await getNotes(),
@@ -53,6 +54,6 @@ app.delete('/:id', async (req, res) => {
 	})
 })
 
-app.listen(port, ()=>{
+app.listen(port, () => {
 	console.log(chalk.green(`Server has been started on port ${port}...`))
 })
